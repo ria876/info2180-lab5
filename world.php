@@ -7,8 +7,8 @@ $dbname = 'world';
 
 
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-$country = isset($_GET['query']) ? $_GET['query'] : '';
-$city = isset($_GET['city']) ? $_GET['city'] : '';
+$country = isset($_GET['query']) ? filter_var($_GET['query'], FILTER_SANITIZE_STRING) : '';
+$city = isset($_GET['city']) ? filter_var($_GET['city'], FILTER_SANITIZE_STRING) : '';
 
 
 if ($city == 'cities') {
